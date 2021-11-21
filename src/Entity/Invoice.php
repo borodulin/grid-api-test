@@ -21,7 +21,7 @@ class Invoice
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Customer")
-     * @ORM\JoinColumn(name="CustomerId", nullable=false)
+     * @ORM\JoinColumn(name="CustomerId", nullable=false, referencedColumnName="CustomerId")
      */
     private Customer $customer;
 

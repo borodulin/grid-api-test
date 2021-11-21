@@ -33,12 +33,11 @@ class AlbumControllerTest extends WebTestCase
         // Validate a successful response and some content
         $this->assertResponseIsSuccessful();
         $response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertArrayHasKey('totalCount', $response);
         $this->assertArrayHasKey('page', $response);
-        $this->assertArrayHasKey('pageCount', $response);
         $this->assertArrayHasKey('pageSize', $response);
         $this->assertArrayHasKey('items', $response);
         $this->assertEquals(2, $response['page']);
         $this->assertEquals(10, $response['pageSize']);
+        $this->assertCount(10, $response['items']);
     }
 }

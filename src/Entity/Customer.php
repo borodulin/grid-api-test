@@ -76,7 +76,7 @@ class Customer
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Employee")
-     * @ORM\JoinColumn(name="SupportRepId")
+     * @ORM\JoinColumn(name="SupportRepId", referencedColumnName="EmployeeId")
      */
     private ?Employee $supportRep = null;
 
