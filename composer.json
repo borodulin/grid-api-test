@@ -27,7 +27,13 @@
         "symfony/yaml": "5.3.*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.3"
+        "friendsofphp/php-cs-fixer": "^3.3",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "5.3.*",
+        "symfony/css-selector": "5.3.*",
+        "symfony/maker-bundle": "^1.36",
+        "symfony/phpunit-bridge": "^5.3",
+        "ext-json": "*"
     },
     "config": {
         "optimize-autoloader": true,

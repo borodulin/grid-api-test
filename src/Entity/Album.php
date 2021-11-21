@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AlbumRepository;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass=AlbumRepository::class)
  * @ORM\Table(name="Album")
  */
 class Album
@@ -26,7 +27,7 @@ class Album
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Artist")
-     * @ORM\JoinColumn(name="ArtistId", nullable=false)
+     * @ORM\JoinColumn(name="ArtistId", nullable=false, referencedColumnName="ArtistId")
      */
     private Artist $artist;
 
