@@ -11,9 +11,12 @@ use Doctrine\ORM\QueryBuilder;
 
 class TrackConverter implements EntityConverterInterface, CustomFilterInterface
 {
-    public function __invoke(Track $track): object
+    public function __invoke(Track $track): array
     {
-        return $track;
+        return [
+            'id' => $track->getId(),
+            'name' => $track->getName(),
+        ];
     }
 
     public function getFilterFields(): array
@@ -29,6 +32,7 @@ class TrackConverter implements EntityConverterInterface, CustomFilterInterface
                         break;
                 }
             },
+            'album',
         ];
     }
 }
