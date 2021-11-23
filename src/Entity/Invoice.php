@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -59,6 +61,16 @@ class Invoice
      * @ORM\Column(name="Total", type="decimal", precision=10, scale=2)
      */
     private float $total;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\InvoiceLine", mappedBy="invoice")
+     */
+    private Collection $lines;
+
+    public function __construct()
+    {
+        $this->lines = new ArrayCollection();
+    }
 
     public function getId(): int
     {
@@ -159,5 +171,13 @@ class Invoice
         $this->total = $total;
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection|Collection
+     */
+    public function getLines()
+    {
+        return $this->lines;
     }
 }

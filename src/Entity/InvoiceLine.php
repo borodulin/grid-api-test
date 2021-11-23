@@ -20,14 +20,14 @@ class InvoiceLine
     private int $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Invoice")
-     * @ORM\JoinColumn(name="InvoiceId", nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Invoice", inversedBy="lines")
+     * @ORM\JoinColumn(name="InvoiceId", nullable=false, referencedColumnName="InvoiceId")
      */
     private Invoice $invoice;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Track")
-     * @ORM\JoinColumn(name="TrackId", nullable=false)
+     * @ORM\JoinColumn(name="TrackId", nullable=false, referencedColumnName="TrackId")
      */
     private Track $track;
 

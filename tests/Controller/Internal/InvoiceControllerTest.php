@@ -22,11 +22,12 @@ class InvoiceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/internal/invoice/1', ['expand' => 'customer']);
+        $client->request('GET', '/internal/invoice/1', ['expand' => 'customer,lines.track']);
 
         // Validate a successful response and some content
         $this->assertResponseIsSuccessful();
         $response = json_decode($client->getResponse()->getContent(), true);
+        var_dump($response);
         $this->assertArrayHasKey('customer', $response);
     }
 }

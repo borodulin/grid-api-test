@@ -26,19 +26,19 @@ class Track
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Album")
-     * @ORM\JoinColumn(name="AlbumId")
+     * @ORM\JoinColumn(name="AlbumId", referencedColumnName="AlbumId")
      */
     private ?Album $album = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\MediaType")
-     * @ORM\JoinColumn(name="MediaTypeId")
+     * @ORM\JoinColumn(name="MediaTypeId", referencedColumnName="MediaTypeId")
      */
     private ?MediaType $mediaType = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Genre")
-     * @ORM\JoinColumn(name="GenreId")
+     * @ORM\JoinColumn(name="GenreId", referencedColumnName="GenreId")
      */
     private ?Genre $genre = null;
 
