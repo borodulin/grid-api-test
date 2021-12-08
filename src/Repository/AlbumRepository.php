@@ -9,7 +9,7 @@ use Doctrine\ORM\QueryBuilder;
 
 class AlbumRepository extends EntityRepository
 {
-    public function searchByTerm(?string $term): QueryBuilder
+    public function searchByTerm(?string $term = null): QueryBuilder
     {
         $qb = $this->createQueryBuilder('a')
             ->orderBy('a.id');

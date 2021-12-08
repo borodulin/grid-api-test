@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Service\TrackService;
+use App\DataProvider\TrackDataProvider;
 use Borodulin\Bundle\GridApiBundle\GridApi\GridApiInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,11 +17,11 @@ class TrackController extends AbstractController
      */
     public function index(
         GridApiInterface $gridApi,
-        TrackService $trackService
+        TrackDataProvider $trackDataProvider
     ): JsonResponse {
         return $this->json(
             $gridApi->paginate(
-                $trackService->search()
+                $trackDataProvider
             )
         );
     }

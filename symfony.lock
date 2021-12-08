@@ -5,6 +5,9 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
+    "composer/pcre": {
+        "version": "1.0.0"
+    },
     "composer/semver": {
         "version": "3.2.6"
     },
@@ -327,9 +330,6 @@
             "src/Kernel.php",
             "src/Controller/.gitignore"
         ]
-    },
-    "symfony/http-client-contracts": {
-        "version": "v2.4.0"
     },
     "symfony/http-foundation": {
         "version": "v5.3.10"

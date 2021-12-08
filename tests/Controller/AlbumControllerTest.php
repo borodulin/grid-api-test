@@ -40,4 +40,21 @@ class AlbumControllerTest extends WebTestCase
         $this->assertEquals(10, $response['pageSize']);
         $this->assertCount(10, $response['items']);
     }
+
+    public function testFilter(): void
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/album', ['a_artist' => 1]);
+
+        // Validate a successful response and some content
+        $this->assertResponseIsSuccessful();
+        $response = json_decode($client->getResponse()->getContent(), true);
+        $this->assertArrayHasKey('totalCount', $response);
+        $this->assertArrayHasKey('page', $response);
+        $this->assertArrayHasKey('pageCount', $response);
+        $this->assertArrayHasKey('pageSize', $response);
+        $this->assertArrayHasKey('items', $response);
+        $this->assertEquals(2, $response['totalCount']);
+    }
 }

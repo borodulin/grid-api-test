@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Service\AlbumService;
+use App\DataProvider\AlbumDataProvider;
 use Borodulin\Bundle\GridApiBundle\GridApi\GridApiInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,12 +17,12 @@ class AlbumController extends AbstractController
      */
     public function index(
         GridApiInterface $gridApi,
-        AlbumService $albumService,
+        AlbumDataProvider $albumDataProvider,
         ?string $term = null
     ): JsonResponse {
         return $this->json(
             $gridApi->paginate(
-                $albumService->search($term)
+                $albumDataProvider->withTerm($term)
             )
         );
     }
