@@ -15,6 +15,7 @@ class InvoiceControllerTest extends WebTestCase
         // Validate a successful response and some content
         $this->assertResponseIsSuccessful();
         $response = json_decode($client->getResponse()->getContent(), true);
+        $this->assertArrayHasKey('invoice_id', $response);
         $this->assertArrayNotHasKey('lines', $response);
         $this->assertArrayNotHasKey('customer', $response);
     }
